@@ -1,4 +1,4 @@
-# HPC 101
+# Introduction to batch computing on the Flux cluster:  Torque PBS
 
 #### 07 Oct 2016
 
