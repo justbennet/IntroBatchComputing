@@ -1,0 +1,21 @@
+#navlist {
+    list-style-type: square !important;
+}
+
+#navlist {
+    list-style-image: none !important;
+	list-style-type: none !important;
+}
+
+#navlist .subtitle{
+    list-style-image: none !important;
+	list-style-type: none;
+}
+
+#title h1, h2, h3, h4, #navlist .subtitle {
+	color: #000099;
+}
+
+a, #navlist a {
+    color: #369;
+}

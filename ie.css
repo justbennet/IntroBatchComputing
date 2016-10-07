@@ -1,0 +1,26 @@
+#title {
+    background-image: none !important;
+    right: 0px !important;
+}
+
+#icon {
+    background-image: none !important;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=crop, src='./images/VBooth2009.jpg');
+}
+
+#content ul {
+    margin-left: 2em !important;
+}
+
+#content ul > li {
+    list-style-type: square !important;
+    list-style-image: none !important;
+}
+
+#navlist .subtitle {
+    font-weight: normal !important;
+}
+
+img {
+    behavior: url( /pngbehavior.htc );
+}
