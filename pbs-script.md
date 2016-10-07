@@ -14,7 +14,8 @@
 
 2. What you need to use the system
     + Login account
-    + Allocation:  Could be provided by college (COE and LSA) or Dept or PI or Rackham
+    + Allocation:  Could be provided by college (COE and LSA) or Dept or PI or
+      Rackham
 
 1. Creating a first batch job and running it
     + create a batch file with a working script
@@ -33,9 +34,9 @@
             #PBS -q flux
             ./hello.sh
 
-      That will almost never be enough, but that's the minimum.  Where's the money
-      and which line do I stand in to pay.
-    + What are the options
+      That will almost never be enough, but that's the minimum.  Where's the
+      money and which line do I stand in to pay.
+    + What are the available options?
     + batch options that should be specified and in some preferred order
 
             cp /scratch/data/workshops/hpc101/preamble.txt .
@@ -65,8 +66,9 @@
             $ cp /scratch/data/workshops/hpc101/template.pbs .
             $ nano template.pbs
 
-    + Note the if statements and the note about which modules are needed (we'll come
-      back to those in a bit).  Complete the information for `template.pbs`
+    + Note the if statements and the note about which modules are needed
+      (we'll come back to those in a bit).  Complete the information for
+      `template.pbs`
 
     + For now, let's run what we have
 
@@ -101,21 +103,23 @@
 
             $ freealloc account_name
 
-   Maybe you are like me, submit a bunch of jobs, then realize that you didn't load
-   the modules first.  Aargh!  You can use
+   Maybe you are like me, submit a bunch of jobs, then realize that you
+   didn't load the modules first.  Aargh!  You can use
 
             $ cancel_my_jobs
 
-   to delete _all_ your currently running or queued jobs.  This wraps the `qdel`
-   command with some options and error checking so you don't generate a ton of
-   e-mail to us that you don't have permission to delete everyone else's jobs, too.
+   to delete _all_ your currently running or queued jobs.  This wraps the
+   `qdel` command with some options and error checking so you don't generate
+   a ton of e-mail to us that you don't have permission to delete everyone
+   else's jobs, too.
 
 1. Running an interactive job
     + What an interative job is
-    + Run it when 1) you need more time or memory or threads than would be polite or
-      allowed on a login node and/or 2) you need to run interactively with processors
-      on more than one physical machine.
-    + To run an interactive job, you can put all the PBS options on the qsub command
+    + Run it when 1) you need more time or memory or threads than would be
+      polite or allowed on a login node and/or 2) you need to run
+      interactively with processors on more than one physical machine.
+    + To run an interactive job, you can put all the PBS options on the qsub
+      command
 
             $ qsub -I -V -l nodes=2:ppn=12,pmem=2gb,walltime=1:00:00 \
                  -A hpc101_flux -l qos=flux -q flux -j oe <pbs_script>
@@ -124,18 +128,17 @@
 
             $ qsub -I <pbs_script>
 
-      Note:  Resize your terminal window to the size you want _before_ your submit an
-      interactive job.
+      Note:  Resize your terminal window to the size you want _before_ your
+      submit an interactive job.
 
-1. Copying data to and from Flux
-    + Command line (Mac and Linux)
+1. Copying data to and from Flux using the command line (Mac and Linux)
 
-            $ sftp flux-xfer.arc-ts.umich.edu
+        $ sftp flux-xfer.arc-ts.umich.edu
 
-    or
+    which will give you an interactive prompt, or
 
-            $ scp my_file flux-xfer.arc-ts.umich.edu:
-            $ scp my_data_file flux-xfer.arc-ts.umich.edu:data/
-            $ scp -r my_data_dir flux-xfer.arc-ts.umich.edu:my_study
+        $ scp my_file flux-xfer.arc-ts.umich.edu:
+        $ scp my_data_file flux-xfer.arc-ts.umich.edu:data/
+        $ scp -r my_data_dir flux-xfer.arc-ts.umich.edu:my_study
 
     + GUI tools, e.g., WinSCP, CyberDuck FileZilla
