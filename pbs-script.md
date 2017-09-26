@@ -1,6 +1,6 @@
 # Introduction to batch computing on the Flux cluster:  Torque PBS
 
-#### 07 Oct 2016
+#### 13 Feb 2017
 
 1. Components of the cluster management system
     + Login nodes
@@ -20,8 +20,8 @@
 1. Creating a first batch job and running it
     + create a batch file with a working script
 
-            $ mkdir hpc101
-            $ cd hpc101
+            $ mkdir IntroFlux
+            $ cd IntroFlux
             $ nano hello.sh
             ----
             echo "Hello, world"
@@ -30,7 +30,7 @@
     + batch file structure:  preamble and job portion
     + The absolute, bare minimum that must be in a PBS script
 
-            #PBS -A hpc101_flux
+            #PBS -A training_flux
             #PBS -q flux
             ./hello.sh
 
@@ -39,7 +39,7 @@
     + What are the available options?
     + batch options that should be specified and in some preferred order
 
-            cp /scratch/data/workshops/hpc101/preamble.txt .
+            cp /scratch/data/workshops/IntroFlux/preamble.txt .
             ####  PBS preamble
 
             #PBS -N job_name_no_spaces
@@ -51,7 +51,7 @@
             #PBS -l nodes=1:ppn=1,mem=1gb,walltime=00:15:00
             #PBS -V
 
-            #PBS -A hpc101_flux
+            #PBS -A training_flux
             #PBS -l qos=flux
             #PBS -q flux
 
@@ -63,7 +63,7 @@
 
     + Some other things are useful to have in the script, so
 
-            $ cp /scratch/data/workshops/hpc101/template.pbs .
+            $ cp /scratch/data/workshops/IntroFlux/template.pbs .
             $ nano template.pbs
 
     + Note the if statements and the note about which modules are needed
@@ -90,7 +90,7 @@
             
         shows which allocations can be used
 
-            $ mdiag -a hpc101_flux
+            $ mdiag -a training_flux
 
         shows procs and memory for an allocation
 
@@ -122,7 +122,7 @@
       command
 
             $ qsub -I -V -l nodes=2:ppn=12,pmem=2gb,walltime=1:00:00 \
-                 -A hpc101_flux -l qos=flux -q flux -j oe <pbs_script>
+                 -A training_flux -l qos=flux -q flux -j oe <pbs_script>
 
       or you can add the `-I` option to `qsub` with a file
 
