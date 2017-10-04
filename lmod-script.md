@@ -1,6 +1,6 @@
 # Introduction to batch computing on the Flux cluster:  Lmod modules
 
-#### 13 Feb 2017
+#### 28 Sep 2017
 
 1. Software modules
 
@@ -44,6 +44,12 @@
       to clear out all the loaded modules, use
 
             $ module purge
+
+    + Modules may have messages printed when you load them.  You should pay
+      attention to those!
+
+            $ module load stata
+            $ module load abaqus
 
     + `module` commands need to be run once after logging in and before
       submitting a job to the queue.  That insures that the settings are
